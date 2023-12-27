@@ -1,0 +1,16 @@
+package ru.skillbox.currency.exchange.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import ru.skillbox.currency.exchange.entity.Currency;
+
+import java.util.List;
+
+public interface CurrencyRepository extends JpaRepository<Currency, Long> {
+
+    Currency findByIsoNumCode(Long isoNumCode);
+    List<Currency> findAllByOrderByNameAsc();
+    boolean existsByIsoNumCode(Long isoNumCode);
+
+
+
+}
